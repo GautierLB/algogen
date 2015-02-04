@@ -35,5 +35,15 @@ namespace TPAlgoGen
              this.notation = _notation;
         }
 
+        public int[] getNotes()
+        {
+            return this.notes;
+        }
+
+        public int getInstrument() 
+        {
+            return this.instrument;
+        }
+
     }
 }
