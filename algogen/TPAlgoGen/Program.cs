@@ -14,9 +14,14 @@ namespace TPAlgoGen
         [STAThread]
         static void Main()
         {
+
+
+            // TODO Générer la 1ere population
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
         }
     }
 }
