@@ -42,9 +42,9 @@ namespace TPAlgoGen
             for (int i = 0; i < 6; i++)
             {
                 int noteMax = 0;
-                for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
                 {
-                    this.individus[i].getNotation();
+                    this.individus[j].getNotation();
                 }
             }
         }
