@@ -22,7 +22,7 @@ namespace TPAlgoGen
         private string numeroGeneration;
         private Byte CurrentlyPlaying;
 
-        private Individu[] individus;
+       // private Individu[] individus = new Individu()[10];
         private Individu test;
 
 
@@ -33,8 +33,15 @@ namespace TPAlgoGen
 
         public MainWindow()
         {
-            numeroGeneration = "1";
            
+
+            // Création de la 1ere génération d'individu
+            numeroGeneration = "1";
+            for (int i = 1; i < 11;i++ )
+            {
+                individus[i] = new Individu();
+            }
+
             InitializeComponent();
             lb_numGen.Text = numeroGeneration;
 
@@ -42,7 +49,6 @@ namespace TPAlgoGen
             mplayer = new MediaPlayer();
            // mplayer.MediaEnded += mplayer_MediaEnded;
             isPlaying = false;
-            test = new Individu();
             
         }
 
@@ -66,7 +72,7 @@ namespace TPAlgoGen
 
 
             /* partie qu'il faut recup sur le bouttons play*/
-            int[] notes = test.getNotes();
+          /*  int[] notes = test.getNotes();
             int instru = test.getInstrument();
 
             for (int a = 0; a < 20;a++ )
@@ -74,7 +80,7 @@ namespace TPAlgoGen
                 song.AddNote(0, 0, notes[a], 12);
             }
             song.SetChannelInstrument(0, 0, instru);    
-
+            */
 
 
 
@@ -136,8 +142,43 @@ namespace TPAlgoGen
         {
             Button oButton = (Button)sender;
             this.CurrentlyPlaying = (Byte) oButton.Tag;
+            MIDISong song = new MIDISong();
+            song.AddTrack("Piste1");
+            song.SetTimeSignature(0, 4, 4);
+            song.SetTempo(0, 150);
 
 
+            int[] notes = individus[CurrentlyPlaying].getNotes();
+            int instru = individus[CurrentlyPlaying].getInstrument();
+
+            for (int a = 0; a < 20; a++)
+            {
+                song.AddNote(0, 0, notes[a], 12);
+            }
+            song.SetChannelInstrument(0, 0, instru);
+
+            MemoryStream ms = new MemoryStream();
+            song.Save(ms);
+            ms.Seek(0, SeekOrigin.Begin);
+            byte[] src = ms.GetBuffer();
+            byte[] dst = new byte[src.Length];
+            for (int i = 0; i < src.Length; i++)
+            {
+                dst[i] = src[i];
+            }
+            ms.Close();
+            // et on écrit le fichier
+            strFileName = "Fichier" + nbFile + ".mid";
+            FileStream objWriter = File.Create(strFileName);
+            objWriter.Write(dst, 0, dst.Length);
+            objWriter.Close();
+            objWriter.Dispose();
+            objWriter = null;
+
+            mplayer.Open(new Uri(strFileName, UriKind.Relative));
+            nbFile++;
+            isPlaying = true;
+            mplayer.Play();
          //     object data = oButton.Tag;
          //   System.Console.Write(oButton.Tag);
 
