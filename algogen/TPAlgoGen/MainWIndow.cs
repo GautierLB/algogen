@@ -20,10 +20,9 @@ namespace TPAlgoGen
     public partial class MainWindow : Form
     {
         private string numeroGeneration;
-        private Byte CurrentlyPlaying;
+        private int CurrentlyPlaying;
 
-       // private Individu[] individus = new Individu()[10];
-        private Individu test;
+        private Individu[] individus =  new Individu[10];
 
 
         MediaPlayer mplayer;
@@ -37,7 +36,7 @@ namespace TPAlgoGen
 
             // Création de la 1ere génération d'individu
             numeroGeneration = "1";
-            for (int i = 1; i < 11;i++ )
+            for (int i = 0; i < 10;i++ )
             {
                 individus[i] = new Individu();
             }
@@ -69,19 +68,6 @@ namespace TPAlgoGen
             song.AddTrack("Piste1");
             song.SetTimeSignature(0, 4, 4);
             song.SetTempo(0, 150);
-
-
-            /* partie qu'il faut recup sur le bouttons play*/
-          /*  int[] notes = test.getNotes();
-            int instru = test.getInstrument();
-
-            for (int a = 0; a < 20;a++ )
-            {
-                song.AddNote(0, 0, notes[a], 12);
-            }
-            song.SetChannelInstrument(0, 0, instru);    
-            */
-
 
 
             MemoryStream ms = new MemoryStream();
@@ -140,48 +126,58 @@ namespace TPAlgoGen
 /*Quand On click sur un bouton Play, on récupère son numéro qui servirons d'identifiant */
         private void Play_Click(object sender, EventArgs e)
         {
-            Button oButton = (Button)sender;
-            this.CurrentlyPlaying = (Byte) oButton.Tag;
-            MIDISong song = new MIDISong();
-            song.AddTrack("Piste1");
-            song.SetTimeSignature(0, 4, 4);
-            song.SetTempo(0, 150);
 
-
-            int[] notes = individus[CurrentlyPlaying].getNotes();
-            int instru = individus[CurrentlyPlaying].getInstrument();
-
-            for (int a = 0; a < 20; a++)
+            if (isPlaying == true)
             {
-                song.AddNote(0, 0, notes[a], 12);
+                isPlaying = false;
+                mplayer.Stop();
+                
             }
-            song.SetChannelInstrument(0, 0, instru);
-
-            MemoryStream ms = new MemoryStream();
-            song.Save(ms);
-            ms.Seek(0, SeekOrigin.Begin);
-            byte[] src = ms.GetBuffer();
-            byte[] dst = new byte[src.Length];
-            for (int i = 0; i < src.Length; i++)
+            else
             {
-                dst[i] = src[i];
+
+                /* GET ID BUTTON */
+                CurrentlyPlaying = int.Parse((string)((Button)sender).Tag) - 1;
+
+
+                MIDISong song = new MIDISong();
+                song.AddTrack("Piste" + CurrentlyPlaying);
+                song.SetTimeSignature(0, 4, 4);
+                song.SetTempo(0, 150);
+
+
+                int[] notes = individus[CurrentlyPlaying].getNotes();
+                int instru = individus[CurrentlyPlaying].getInstrument();
+
+                for (int a = 0; a < 20; a++)
+                {
+                    song.AddNote(0, 0, notes[a], 12);
+                }
+                song.SetChannelInstrument(0, 0, instru);
+
+                MemoryStream ms = new MemoryStream();
+                song.Save(ms);
+                ms.Seek(0, SeekOrigin.Begin);
+                byte[] src = ms.GetBuffer();
+                byte[] dst = new byte[src.Length];
+                for (int i = 0; i < src.Length; i++)
+                {
+                    dst[i] = src[i];
+                }
+                ms.Close();
+                // et on écrit le fichier
+                strFileName = "Fichier" + nbFile + ".mid";
+                FileStream objWriter = File.Create(strFileName);
+                objWriter.Write(dst, 0, dst.Length);
+                objWriter.Close();
+                objWriter.Dispose();
+                objWriter = null;
+
+                mplayer.Open(new Uri(strFileName, UriKind.Relative));
+                nbFile++;
+                isPlaying = true;
+                mplayer.Play();
             }
-            ms.Close();
-            // et on écrit le fichier
-            strFileName = "Fichier" + nbFile + ".mid";
-            FileStream objWriter = File.Create(strFileName);
-            objWriter.Write(dst, 0, dst.Length);
-            objWriter.Close();
-            objWriter.Dispose();
-            objWriter = null;
-
-            mplayer.Open(new Uri(strFileName, UriKind.Relative));
-            nbFile++;
-            isPlaying = true;
-            mplayer.Play();
-         //     object data = oButton.Tag;
-         //   System.Console.Write(oButton.Tag);
-
         }
 
 
