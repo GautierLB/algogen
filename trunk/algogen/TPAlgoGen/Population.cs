@@ -14,7 +14,6 @@ namespace TPAlgoGen
         private int crossOver;
         private int nbGenerations;
 
-        /* TODO PREMIERE GENERATION */
 
         public Population()
         {
@@ -23,19 +22,17 @@ namespace TPAlgoGen
             this.nbGenerations = 1;
             this.createPopulation();
 
+
         }
 
         private void createPopulation()
         {
-            for (int i = 0; i < 10; i++)
+            for (int boucle = 0; boucle < 10; boucle++)
             {
-                this.individus[i] = new Individu();
-                System.Console.WriteLine("n:" + i);
-                for (int a = 0; a < 20; a++)
-                {
-                    System.Console.Write(this.individus[i].getNotes()[a]);
-                }
-                System.Console.WriteLine("");
+                 //sleep for the random in the creation
+                System.Threading.Thread.Sleep(20);
+                this.individus[boucle] = new Individu();
+  
             }
         }
 
