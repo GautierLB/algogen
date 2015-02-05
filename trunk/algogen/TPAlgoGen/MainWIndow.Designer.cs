@@ -46,6 +46,21 @@
             this.Note5 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Play5 = new System.Windows.Forms.Button();
+            this.Note10 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Play10 = new System.Windows.Forms.Button();
+            this.Note7 = new System.Windows.Forms.ComboBox();
+            this.Note8 = new System.Windows.Forms.ComboBox();
+            this.Note9 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Play9 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Play8 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Play7 = new System.Windows.Forms.Button();
+            this.Note6 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.Play6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nextGen
@@ -274,13 +289,227 @@
             this.Play5.Text = "Play";
             this.Play5.UseVisualStyleBackColor = true;
             this.Play5.Click += new System.EventHandler(this.Play_Click);
-
+            // 
+            // Note10
+            // 
+            this.Note10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Note10.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.Note10.Location = new System.Drawing.Point(540, 186);
+            this.Note10.Name = "Note10";
+            this.Note10.Size = new System.Drawing.Size(121, 21);
+            this.Note10.TabIndex = 32;
+            this.Note10.Tag = "10";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(374, 191);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Son 10";
+            // 
+            // Play10
+            // 
+            this.Play10.Location = new System.Drawing.Point(429, 186);
+            this.Play10.Name = "Play10";
+            this.Play10.Size = new System.Drawing.Size(75, 23);
+            this.Play10.TabIndex = 30;
+            this.Play10.Tag = "10";
+            this.Play10.Text = "Play";
+            this.Play10.UseVisualStyleBackColor = true;
+            this.Play10.Click += new System.EventHandler(this.Play_Click);
+            // 
+            // Note7
+            // 
+            this.Note7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Note7.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.Note7.Location = new System.Drawing.Point(540, 103);
+            this.Note7.Name = "Note7";
+            this.Note7.Size = new System.Drawing.Size(121, 21);
+            this.Note7.TabIndex = 29;
+            this.Note7.Tag = "7";
+            // 
+            // Note8
+            // 
+            this.Note8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Note8.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.Note8.Location = new System.Drawing.Point(540, 132);
+            this.Note8.Name = "Note8";
+            this.Note8.Size = new System.Drawing.Size(121, 21);
+            this.Note8.TabIndex = 28;
+            this.Note8.Tag = "8";
+            // 
+            // Note9
+            // 
+            this.Note9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Note9.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.Note9.Location = new System.Drawing.Point(540, 159);
+            this.Note9.Name = "Note9";
+            this.Note9.Size = new System.Drawing.Size(121, 21);
+            this.Note9.TabIndex = 27;
+            this.Note9.Tag = "9";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(374, 164);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Son 9";
+            // 
+            // Play9
+            // 
+            this.Play9.Location = new System.Drawing.Point(429, 159);
+            this.Play9.Name = "Play9";
+            this.Play9.Size = new System.Drawing.Size(75, 23);
+            this.Play9.TabIndex = 25;
+            this.Play9.Tag = "9";
+            this.Play9.Text = "Play";
+            this.Play9.UseVisualStyleBackColor = true;
+            this.Play9.Click += new System.EventHandler(this.Play_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(374, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Son 8";
+            // 
+            // Play8
+            // 
+            this.Play8.Location = new System.Drawing.Point(429, 130);
+            this.Play8.Name = "Play8";
+            this.Play8.Size = new System.Drawing.Size(75, 23);
+            this.Play8.TabIndex = 23;
+            this.Play8.Tag = "8";
+            this.Play8.Text = "Play";
+            this.Play8.UseVisualStyleBackColor = true;
+            this.Play8.Click += new System.EventHandler(this.Play_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(374, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Son 7";
+            // 
+            // Play7
+            // 
+            this.Play7.Location = new System.Drawing.Point(429, 101);
+            this.Play7.Name = "Play7";
+            this.Play7.Size = new System.Drawing.Size(75, 23);
+            this.Play7.TabIndex = 21;
+            this.Play7.Tag = "7";
+            this.Play7.Text = "Play";
+            this.Play7.UseVisualStyleBackColor = true;
+            this.Play7.Click += new System.EventHandler(this.Play_Click);
+            // 
+            // Note6
+            // 
+            this.Note6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Note6.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.Note6.Location = new System.Drawing.Point(540, 72);
+            this.Note6.Name = "Note6";
+            this.Note6.Size = new System.Drawing.Size(121, 21);
+            this.Note6.TabIndex = 20;
+            this.Note6.Tag = "6";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(374, 77);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Son 6";
+            // 
+            // Play6
+            // 
+            this.Play6.Location = new System.Drawing.Point(429, 72);
+            this.Play6.Name = "Play6";
+            this.Play6.Size = new System.Drawing.Size(75, 23);
+            this.Play6.TabIndex = 18;
+            this.Play6.Tag = "6";
+            this.Play6.Text = "Play";
+            this.Play6.UseVisualStyleBackColor = true;
+            this.Play6.Click += new System.EventHandler(this.Play_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 426);
+            this.Controls.Add(this.Note10);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Play10);
+            this.Controls.Add(this.Note7);
+            this.Controls.Add(this.Note8);
+            this.Controls.Add(this.Note9);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Play9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.Play8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.Play7);
+            this.Controls.Add(this.Note6);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Play6);
             this.Controls.Add(this.Note5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Play5);
@@ -327,6 +556,21 @@
         private System.Windows.Forms.ComboBox Note5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Play5;
+        private System.Windows.Forms.ComboBox Note10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Play10;
+        private System.Windows.Forms.ComboBox Note7;
+        private System.Windows.Forms.ComboBox Note8;
+        private System.Windows.Forms.ComboBox Note9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button Play9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button Play8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button Play7;
+        private System.Windows.Forms.ComboBox Note6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button Play6;
     }
 }
 
