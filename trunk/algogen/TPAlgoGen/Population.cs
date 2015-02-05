@@ -8,7 +8,7 @@ namespace TPAlgoGen
 {
     class Population
     {
-        private Individu[] individus;
+        private Individu[] individus = new Individu[10];
         private Individu[] nouveauxIndividus;
         private int tauxMutation;
         private int crossOver;
@@ -30,6 +30,12 @@ namespace TPAlgoGen
             for (int i = 0; i < 10; i++)
             {
                 this.individus[i] = new Individu();
+                System.Console.WriteLine("n:" + i);
+                for (int a = 0; a < 20; a++)
+                {
+                    System.Console.Write(this.individus[i].getNotes()[a]);
+                }
+                System.Console.WriteLine("");
             }
         }
 
@@ -70,6 +76,16 @@ namespace TPAlgoGen
             this.nbGenerations++;
             this.Selection();
             this.Survie();
+        }
+
+        public Individu[] getIndividus()
+        {
+            return this.individus;
+        }
+
+        public int getNbGenerations()
+        {
+            return nbGenerations;
         }
     
     }
