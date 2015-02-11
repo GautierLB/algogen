@@ -9,7 +9,6 @@ namespace TPAlgoGen
     class Population
     {
         private Individu[] individus = new Individu[10];
-        private Individu[] nouveauxIndividus;
         private int tauxMutation;
         private int crossOver;
         private int nbGenerations;
@@ -39,42 +38,97 @@ namespace TPAlgoGen
 
         /* TODO SELECTION */
 
-        public void Selection()
+        public void Classement()
         {
-            Individu[] temp = new Individu[6];
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
             {
-                int noteMax = 0;
                 for (int j = 0; j < 10; j++)
                 {
-                    this.individus[j].getNotation();
+                    if (this.individus[j + 1].getNotation() < this.individus[j].getNotation())
+                    {
+                        Individu t = this.individus[j + 1];
+                        this.individus[j + 1] = this.individus[j];
+                        this.individus[j] = t;
+                    }
                 }
             }
         }
 
-        /* TODO SURVIE*/
-
-        public void Survie()
+        public void Selection()
         {
-            for (int i = 0; i < 10; i++)
+            Individu[] newPop = new Individu[10];
+            Random rand = new Random();
+            int random = 0;
+            for (int k = 0; k < 10; k++)
             {
-                if (this.individus[i].getNotation() < this.nouveauxIndividus[i].getNotation())
+                Individu parent = this.findParent();
+                random = rand.Next(1, 100);
+                if (random >= 60)
                 {
-                    this.individus[i] = this.nouveauxIndividus[i];
+                    Individu parent2 = this.findParent();
+                    newPop[k] = new Individu(parent, parent2);
+                }
+                else
+                {
+                    newPop[k] = new Individu(parent, null);
                 }
             }
-
         }
-
         /* TODO NOMBRE GENERATIONS */
 
+        private Individu findParent()
+        {
+            Random rand = new Random();
+            int random = rand.Next(1, 55);
+            Individu parent = null;
+            if (random > 0 && random <= 11)
+            {
+                parent = this.individus[0];
+            }
+            else if (random > 11 && random <= 20)
+            {
+                parent = this.individus[1];
+            }
+            else if (random > 20 && random <= 28)
+            {
+                parent = this.individus[2];
+            }
+            else if (random > 28 && random <= 35)
+            {
+                parent = this.individus[3];
+            }
+            else if (random > 35 && random <= 41)
+            {
+                parent = this.individus[4];
+            }
+            else if (random > 41 && random <= 46)
+            {
+                parent = this.individus[5];
+            }
+            else if (random > 46 && random <= 50)
+            {
+                parent = this.individus[6];
+            }
+            else if (random > 50 && random <= 53)
+            {
+                parent = this.individus[7];
+            }
+            else if (random > 53 && random <= 55)
+            {
+                parent = this.individus[8];
+            }
+            else if (random > 55 && random <= 56)
+            {
+                parent = this.individus[9];
+            }
+            return parent;
+        }
         public void nouvelleGeneration()
         {
             this.nbGenerations++;
             this.Selection();
-            this.Survie();
         }
-
+    
         public Individu[] getIndividus()
         {
             return this.individus;
