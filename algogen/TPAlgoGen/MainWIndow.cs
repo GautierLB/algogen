@@ -36,8 +36,6 @@ namespace TPAlgoGen
 
             // Create the first generation of "people"
             this.CurrentPopulation = new Population();
-
-           
             lb_numGen.Text =  CurrentPopulation.getNbGenerations().ToString();
 
 

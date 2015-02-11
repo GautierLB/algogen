@@ -20,9 +20,14 @@ namespace TPAlgoGen
             for (int i = 0; i < 20; i++)
             {
                 int note = rand.Next(24, 96);
+                Console.WriteLine(note);
                 this.notes[i] = note;
-
             }
+        }
+
+        public Individu(Individu parent1, Nullable<Individu> parent2 )
+        {
+
         }
 
         public int getNotation()
