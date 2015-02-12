@@ -9,19 +9,15 @@ namespace TPAlgoGen
     class Population
     {
         private Individu[] individus = new Individu[10];
-        private int tauxMutation;
-        private int crossOver;
+        private static int tauxMutation = 60 ;
+        private static int crossOver = 60;
         private int nbGenerations;
 
 
         public Population()
         {
-            this.tauxMutation = 10;
-            this.crossOver = 60;
             this.nbGenerations = 1;
             this.createPopulation();
-
-
         }
 
         private void createPopulation()
@@ -58,12 +54,10 @@ namespace TPAlgoGen
         {
             Individu[] newPop = new Individu[10];
             Random rand = new Random();
-            int random = 0;
             for (int k = 0; k < 10; k++)
             {
                 Individu parent = this.findParent();
-                random = rand.Next(1, 100);
-                if (random >= 60)
+                if (rand.Next(1, 100) <= Population.crossOver)
                 {
                     Individu parent2 = this.findParent();
                     newPop[k] = new Individu(parent, parent2);
@@ -138,6 +132,11 @@ namespace TPAlgoGen
         {
             return nbGenerations;
         }
-    
+
+
+        public static int getTauxMutation()
+        {
+            return Population.tauxMutation;
+        }
     }
 }
