@@ -57,6 +57,8 @@ namespace TPAlgoGen
         private void nextGen_Click(object sender, EventArgs e)
         {
             Individu[] individus = new Individu[10];
+
+            this.CurrentPopulation.Classement();
             individus =  this.CurrentPopulation.getIndividus();
             
             /* On rentre les notes */
@@ -73,14 +75,14 @@ namespace TPAlgoGen
 
      
             isPlaying = false;
-            mplayer.Stop();
+            mplayer.Close(); 
 
 
             this.CurrentPopulation.nouvelleGeneration();
 
 
            // CurrentPopulation.Selection();
-            Console.WriteLine("blblb");
+           // Console.WriteLine("blblb");
             lb_numGen.Text = CurrentPopulation.getNbGenerations().ToString();
            // InitializeComponent();
 
@@ -140,9 +142,10 @@ namespace TPAlgoGen
                 int[] notes = ind[CurrentlyPlaying].getNotes();
                 int instru = ind[CurrentlyPlaying].getInstrument();
 
+                System.Console.WriteLine("Currently playing:" + CurrentlyPlaying);
                 for (int a = 0; a < 20; a++)
                 {
-                    System.Console.WriteLine("");
+                    
                     System.Console.Write(notes[a]);
                     song.AddNote(0, 0, notes[a], 12);
                 }
