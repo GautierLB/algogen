@@ -32,7 +32,8 @@ namespace TPAlgoGen
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    this.notes[i] = parent1Notes[i];
+                   
+                    this.notes[i] =  parent1Notes[i];
                 }
                 int[] parent2Notes = parent2.getNotes();
                 for (int j = 10; j < 20; j++)

@@ -38,7 +38,7 @@ namespace TPAlgoGen
         {
             for (int i = 0; i < 9; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 9; j++)
                 {
                     if (this.individus[j + 1].getNotation() < this.individus[j].getNotation())
                     {
