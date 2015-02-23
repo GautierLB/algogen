@@ -50,9 +50,10 @@ namespace TPAlgoGen
             }
         }
 
-        public void Selection()
+        public Individu[] Selection()
         {
             Individu[] newPop = new Individu[10];
+            System.Threading.Thread.Sleep(20);
             Random rand = new Random();
             for (int k = 0; k < 10; k++)
             {
@@ -67,8 +68,10 @@ namespace TPAlgoGen
                     newPop[k] = new Individu(parent, null);
                 }
             }
+            this.individus = newPop;
+            return this.individus;
         }
-        /* TODO NOMBRE GENERATIONS */
+       
 
         private Individu findParent()
         {
@@ -117,10 +120,15 @@ namespace TPAlgoGen
             }
             return parent;
         }
-        public void nouvelleGeneration()
+
+
+        public Population nouvelleGeneration()
         {
             this.nbGenerations++;
             this.Selection();
+          
+
+            return this;
         }
     
         public Individu[] getIndividus()

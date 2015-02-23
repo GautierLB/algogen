@@ -28,6 +28,7 @@ namespace TPAlgoGen
         public Individu(Individu parent1,Individu parent2 )
         {
             int[] parent1Notes = parent1.getNotes();
+            this.notes = new int[20];
             if (parent2 != null)
             {
                 for (int i = 0; i < 10; i++)

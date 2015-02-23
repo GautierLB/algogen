@@ -491,6 +491,9 @@
             this.Play6.UseVisualStyleBackColor = true;
             this.Play6.Click += new System.EventHandler(this.Play_Click);
             // 
+
+
+
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
