@@ -22,9 +22,6 @@ namespace TPAlgoGen
         
         private int CurrentlyPlaying;
         private Population CurrentPopulation;
-    
-
-
 
 
         MediaPlayer mplayer;
@@ -34,8 +31,18 @@ namespace TPAlgoGen
 
         public MainWindow()
         {
+       
             InitializeComponent();
-
+            this.Note1.SelectedIndex = 0;
+            this.Note2.SelectedIndex = 0;
+            this.Note3.SelectedIndex = 0;
+            this.Note4.SelectedIndex = 0;
+            this.Note5.SelectedIndex = 0;
+            this.Note6.SelectedIndex = 0;
+            this.Note7.SelectedIndex = 0;
+            this.Note8.SelectedIndex = 0;
+            this.Note9.SelectedIndex = 0;
+            this.Note10.SelectedIndex = 0;
             // Create the first generation of "people"
             this.CurrentPopulation = new Population();
             lb_numGen.Text =  CurrentPopulation.getNbGenerations().ToString();
@@ -64,30 +71,39 @@ namespace TPAlgoGen
             individus[8].setNotation(int.Parse(Note9.SelectedItem.ToString()));
             individus[9].setNotation(int.Parse(Note10.SelectedItem.ToString()));
 
-            CurrentPopulation.Classement();
-            CurrentPopulation.Selection();
-            Console.Write("blblb");
+     
+            isPlaying = false;
+            mplayer.Stop();
 
 
-            // TODO Vérifier que tous les individus ont une notes
+            this.CurrentPopulation.nouvelleGeneration();
 
-            // TODO lancer la génération suivante
+
+           // CurrentPopulation.Selection();
+            Console.WriteLine("blblb");
+            lb_numGen.Text = CurrentPopulation.getNbGenerations().ToString();
+           // InitializeComponent();
+
+            this.Note1.SelectedIndex = 0;
+            this.Note2.SelectedIndex = 0;
+            this.Note3.SelectedIndex = 0;
+            this.Note4.SelectedIndex = 0;
+            this.Note5.SelectedIndex = 0;
+            this.Note6.SelectedIndex = 0;
+            this.Note7.SelectedIndex = 0;
+            this.Note8.SelectedIndex = 0;
+            this.Note9.SelectedIndex = 0;
+            this.Note10.SelectedIndex = 0;
+           
+
+            
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
             /* On initialise les notes par défaut */
-            Note1.SelectedIndex = 0;
-            Note2.SelectedIndex = 0;
-            Note3.SelectedIndex = 0;
-            Note4.SelectedIndex = 0;
-            Note5.SelectedIndex = 0;
-            Note6.SelectedIndex = 0;
-            Note7.SelectedIndex = 0;
-            Note8.SelectedIndex = 0;
-            Note9.SelectedIndex = 0;
-            Note10.SelectedIndex = 0;
+         
         }
 
    
