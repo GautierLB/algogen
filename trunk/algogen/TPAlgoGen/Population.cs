@@ -53,10 +53,11 @@ namespace TPAlgoGen
         public Individu[] Selection()
         {
             Individu[] newPop = new Individu[10];
-            System.Threading.Thread.Sleep(20);
-            Random rand = new Random();
+           
             for (int k = 0; k < 10; k++)
             {
+                System.Threading.Thread.Sleep(20);
+                Random rand = new Random();
                 Individu parent = this.findParent();
                 if (rand.Next(1, 100) <= Population.crossOver)
                 {
