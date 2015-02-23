@@ -22,6 +22,8 @@ namespace TPAlgoGen
         
         private int CurrentlyPlaying;
         private Population CurrentPopulation;
+    
+
 
 
 
@@ -47,6 +49,25 @@ namespace TPAlgoGen
 
         private void nextGen_Click(object sender, EventArgs e)
         {
+            Individu[] individus = new Individu[10];
+            individus =  this.CurrentPopulation.getIndividus();
+            
+            /* On rentre les notes */
+            individus[0].setNotation(int.Parse(Note1.SelectedItem.ToString()));
+            individus[1].setNotation(int.Parse(Note2.SelectedItem.ToString()));
+            individus[2].setNotation(int.Parse(Note3.SelectedItem.ToString()));
+            individus[3].setNotation(int.Parse(Note4.SelectedItem.ToString()));
+            individus[4].setNotation(int.Parse(Note5.SelectedItem.ToString()));
+            individus[5].setNotation(int.Parse(Note6.SelectedItem.ToString()));
+            individus[6].setNotation(int.Parse(Note7.SelectedItem.ToString()));
+            individus[7].setNotation(int.Parse(Note8.SelectedItem.ToString()));
+            individus[8].setNotation(int.Parse(Note9.SelectedItem.ToString()));
+            individus[9].setNotation(int.Parse(Note10.SelectedItem.ToString()));
+
+            CurrentPopulation.Classement();
+            CurrentPopulation.Selection();
+            Console.Write("blblb");
+
 
             // TODO Vérifier que tous les individus ont une notes
 
@@ -56,6 +77,17 @@ namespace TPAlgoGen
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
+            /* On initialise les notes par défaut */
+            Note1.SelectedIndex = 0;
+            Note2.SelectedIndex = 0;
+            Note3.SelectedIndex = 0;
+            Note4.SelectedIndex = 0;
+            Note5.SelectedIndex = 0;
+            Note6.SelectedIndex = 0;
+            Note7.SelectedIndex = 0;
+            Note8.SelectedIndex = 0;
+            Note9.SelectedIndex = 0;
+            Note10.SelectedIndex = 0;
         }
 
    

@@ -112,6 +112,7 @@
             // 
             // Note1
             // 
+            this.Note1.DisplayMember = "1";
             this.Note1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Note1.Items.AddRange(new object[] {
             "1",
