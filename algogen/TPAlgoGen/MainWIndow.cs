@@ -132,7 +132,7 @@ namespace TPAlgoGen
                 song.SetTimeSignature(0, 4, 4);
                 song.SetTempo(0, 150);
 
-                System.Console.Write(CurrentlyPlaying);
+             //   System.Console.Write(CurrentlyPlaying);
 
                 /* get the note + instrumental from the individu*/
                 Individu[] ind = this.CurrentPopulation.getIndividus();
